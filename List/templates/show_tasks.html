@@ -20,9 +20,9 @@
                 <tbody>
                     {% for i in data %}
                         <tr>
-                            <td style="width: 210px;">{{ i.title }}</td>
-                            <td>{{ i.description }}</td>
-                            <td style="text-align: center;">{{ i.status }}</td>
+                            <td style="width: 210px;">{{ i.taskTitle }}</td>
+                            <td>{{ i.taskDescription }}</td>
+                            <td style="text-align: center;">{{ i.is_completed }}</td>
                             <td style="width: 210px; text-align:center">
                                 <a href="{% url 'edit_task' id=i.id %}">
                                     <button type="button" class="btn btn-primary btn-sm">Edit</button>

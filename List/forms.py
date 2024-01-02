@@ -1,7 +1,7 @@
 from django import forms
-from List.models import ToDoModel
+from List.models import TaskModel
 
 class ToDoForm(forms.ModelForm):
     class Meta:
-        model = ToDoModel
-        fields = ['title', 'description']
+        model = TaskModel
+        fields = ['taskTitle', 'taskDescription']

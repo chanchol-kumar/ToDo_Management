@@ -1,7 +1,7 @@
 from django.contrib import admin
-from List.models import ToDoModel
+from List.models import TaskModel
 
 class ToDoModelAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'status')
+    list_display = ('taskTitle', 'taskDescription', 'is_completed')
 
-admin.site.register(ToDoModel, ToDoModelAdmin)
+admin.site.register(TaskModel, ToDoModelAdmin)
