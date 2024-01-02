@@ -35,5 +35,9 @@
         {% else %}
             <h1>No data available!</h1>
         {% endif %}
+        <a href="{% url 'show_tasks' %}">
+            <button type="button" class="btn btn-primary" style="margin-bottom: 10px;">back</button>
+        </a>
+
     </div>
 {% endblock %}
