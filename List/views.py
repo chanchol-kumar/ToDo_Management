@@ -35,12 +35,12 @@ def delete_task(request, id):
 
 def complete_task(request, id):
     task = ToDoModel.objects.get(pk=id)
-    task.status = False
+    task.status = True
     task.save()
     return redirect('completed_tasks')
 
 def completed_tasks(request):
-    completed_tasks = ToDoModel.objects.filter(status=False)
+    completed_tasks = ToDoModel.objects.filter(status=True)
     return render(request, 'completed_tasks.html', {'data': completed_tasks})
 
 def complete_delete_task(request, id):
