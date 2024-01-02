@@ -1,0 +1,49 @@
+{% extends "home.html" %}
+{% block bd %}{% endblock  %}
+{% block abt %}<h1></h1> {% endblock %}
+
+{% block content %}
+    <div style="width: 75%; margin: auto;">
+        <br/>
+        <h1 style="text-align: center; width: 100%; background-color: green; color: white; padding: 10px;">TODO Showcase Management</h1>
+
+        {% if data %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th scope="col">Title</th>
+                        <th scope="col">Descriptions</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr>
+                            <td style="width: 210px;">{{ i.title }}</td>
+                            <td>{{ i.description }}</td>
+                            <td style="text-align: center;">{{ i.status }}</td>
+                            <td style="width: 210px; text-align:center">
+                                <a href="{% url 'edit_task' id=i.id %}">
+                                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                                </a>
+                                <a href="{% url 'delete_task' id=i.id %}">
+                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                </a>
+                                <a href="{% url 'complete_task' id=i.id%}">
+                                    <button type="button" class="btn btn-success btn-sm">Complete</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <h1>No data available!</h1>
+        {% endif %}
+        
+        <a href="{% url 'add_tasks' %}">
+            <button type="button" class="btn btn-primary" style="margin-bottom: 10px;">Add Task</button>
+        </a>
+    </div>
+{% endblock %}
