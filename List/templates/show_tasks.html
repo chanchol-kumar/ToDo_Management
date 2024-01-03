@@ -22,7 +22,11 @@
                         <tr>
                             <td style="width: 210px;">{{ i.taskTitle }}</td>
                             <td>{{ i.taskDescription }}</td>
-                            <td style="text-align: center;">{{ i.is_completed }}</td>
+                            {%if i.is_completed%}
+                                <td style="text-align: center;">Complete</td>
+                            {%else%}
+                                <td style="text-align: center;">Incomplete</td>
+                            {%endif%}
                             <td style="width: 210px; text-align:center">
                                 <a href="{% url 'edit_task' id=i.id %}">
                                     <button type="button" class="btn btn-primary btn-sm">Edit</button>
